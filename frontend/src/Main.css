@@ -1,0 +1,124 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Poppins:wght@600&display=swap");
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #000;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.title {
+  margin-top: 2rem;
+  font-size: 4em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin-top: 2rem; 
+}
+
+input {
+  padding: 0.5rem 1rem;
+  margin: 1em 0;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:focus {
+  border-color: #000;
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  width: 20%; 
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 1rem; 
+}
+
+button:hover {
+  background-color: #000000;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.short-url-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem; 
+}
+
+/* Copy URL Button */
+.short-url-container button {
+  width: 100%;
+}
+
+
+.short-url {
+  color: #007bff; 
+  text-decoration: none;  
+}
+
+.short-url:hover {
+  color: #0056b3;
+  text-decoration: underline; 
+}
+
+.copy-success,
+.copy-error {
+  margin-top: 1rem; 
+  font-size: 0.9rem; 
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 2rem;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 1.5rem; 
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 40%;
+  }
+}
