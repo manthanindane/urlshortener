@@ -82,19 +82,24 @@ app.use("/url", urlRoute);
 
 app.get("/:shortId", async (req, res) => {
   const shortId = req.params.shortId;
-  const entry = await URL.findOneAndUpdate(
-    {
-      shortId,
-    },
-    {
-      $push: {
-        visitHistory: {
-          timestamp: Date.now(),
-        },
-      },
+
+  try {
+    const entry = await URL.findOneAndUpdate(
+      { shortId },
+      { $push: { visitHistory: { timestamp: Date.now() } } }, 
+      { new: true } // Get the modified document if a match is found
+    );
+
+    if (!entry) {
+      return res.status(404).json('Short URL not found');
     }
-  );
-  res.redirect(entry.redirectURL);
+
+    console.log(entry); // Log the full result for investigation 
+    res.redirect(entry.redirectURL);
+  } catch (error) {
+    console.error('Database error:', error);
+    res.status(500).json({ error: 'Something went wrong' });  
+  } 
 });
 
 app.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));
